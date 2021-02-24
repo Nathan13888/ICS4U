@@ -27,21 +27,9 @@ public class MyStack extends MyLL {
 		return res;
 	}
 
-//	public StudentInfo peek() {
-//		StudentInfo last = super.frontOfList;
-//		if (last != null) {
-//			StudentInfo secondLast = null;
-//			while (last.next != null) {
-//				secondLast = last;
-//				last = last.next;
-//			}
-//			if (secondLast != null) {
-//				secondLast.next = null;
-//			}
-//			super.numInList--;
-//		}
-//		return last;
-//	}
+	public StudentInfo peek() {
+		return super.frontOfList;
+	}
 
 	public void displayStack() {
 		if (super.numInList == 0) {
