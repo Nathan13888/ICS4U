@@ -10,6 +10,8 @@ public class StudentInfo {
 	public double height; // in metres
 	public double weight; // in kg
 
+	public StudentInfo left, right; // binary tree
+
 	// Constructors
 
 	public StudentInfo() {
@@ -27,6 +29,9 @@ public class StudentInfo {
 		this.lastName = lastName;
 		height = h;
 		weight = w;
+
+		this.left = null; // binary tree
+		this.right = null;
 
 	}
 
