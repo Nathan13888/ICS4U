@@ -54,6 +54,27 @@ public class TestBinaryTree {
 		t2.inorder(t2.root);
 		System.out.println();
 
+		System.out.println("\n\nThird test...");
+		MyBinaryTree t3 = new MyBinaryTree();
+
+		t3.addToTree(t3.root, newStudent(5));
+		t3.addToTree(t3.root, newStudent(6));
+		t3.addToTree(t3.root, newStudent(3));
+		t3.addToTree(t3.root, newStudent(1));
+		t3.addToTree(t3.root, newStudent(2));
+		t3.addToTree(t3.root, newStudent(8));
+		t3.addToTree(t3.root, newStudent(9));
+		t3.addToTree(t3.root, newStudent(10));
+		t3.addToTree(t3.root, newStudent(7));
+		t3.addToTree(t3.root, newStudent(0));
+
+		System.out.println("\nPreorder");
+		t3.preorder(t3.root);
+		System.out.println("\nPostorder");
+		t3.postorder(t3.root);
+		System.out.println("\nInorder");
+		t3.inorder(t3.root);
+		System.out.println();
 	}
 
 	private StudentInfo newStudent(int i) {

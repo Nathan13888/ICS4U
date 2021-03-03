@@ -12,6 +12,10 @@ public class MyBinaryTree {
 
 	public void addToTree(StudentInfo root, StudentInfo student) {
 		this.numInTree++;
+		if (this.root == null) {
+			this.root = student;
+			return;
+		}
 		if (student.studentNumber < root.studentNumber)
 			if (root.left != null)
 				this.addToTree(root.left, student);
