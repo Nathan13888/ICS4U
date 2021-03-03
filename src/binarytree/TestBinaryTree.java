@@ -34,6 +34,7 @@ public class TestBinaryTree {
 		t.postorder(t.root);
 		System.out.println("\nInorder");
 		t.inorder(t.root);
+		System.out.print("\nNumber of students: " + t.numInTree);
 		System.out.println();
 
 		System.out.println("\n\nSecond test...");
@@ -52,6 +53,7 @@ public class TestBinaryTree {
 		t2.postorder(t2.root);
 		System.out.println("\nInorder");
 		t2.inorder(t2.root);
+		System.out.print("\nNumber of students: 7");
 		System.out.println();
 
 		System.out.println("\n\nThird test...");
@@ -74,6 +76,7 @@ public class TestBinaryTree {
 		t3.postorder(t3.root);
 		System.out.println("\nInorder");
 		t3.inorder(t3.root);
+		System.out.print("\nNumber of students: " + t3.numInTree);
 		System.out.println();
 	}
 
