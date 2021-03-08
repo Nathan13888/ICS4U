@@ -6,7 +6,7 @@ public class MyHashTable {
 
 	// ATTRIBUTES
 
-	public ArrayList<StudentInfo>[] buckets;
+	public ArrayList<EmployeeInfo>[] buckets;
 
 	// CONSTRUCTOR
 
@@ -16,7 +16,7 @@ public class MyHashTable {
 
 		// For each element in the array, instantiate its ArrayList.
 		for (int i = 0; i < howManyBuckets; i++) {
-			buckets[i] = new ArrayList<StudentInfo>();
+			buckets[i] = new ArrayList<EmployeeInfo>();
 		}
 	}
 
@@ -26,9 +26,9 @@ public class MyHashTable {
 		return (studentNumber < 0) ? (calcBucket(studentNumber + buckets.length)) : (studentNumber % buckets.length);
 	}
 
-	public void addToTable(StudentInfo theStudent) { // Add the student referenced by theStudent to the hash table.
+	public void addToTable(EmployeeInfo theStudent) { // Add the student referenced by theStudent to the hash table.
 		if (theStudent != null) {
-			int targetBucket = calcBucket(theStudent.studentNumber);
+			int targetBucket = calcBucket(theStudent.empNumber);
 			// Append that student to the ArrayList for that bucket.
 			@SuppressWarnings("unused")
 			boolean addStatus = buckets[targetBucket].add(theStudent);
@@ -36,13 +36,13 @@ public class MyHashTable {
 
 	}
 
-	public StudentInfo removeFromTable(int studentNumber) {
+	public EmployeeInfo removeFromTable(int studentNumber) {
 		// Remove that student from the hash table and return the reference value for
 		// that student.
 		if (studentNumber >= 0) {
-			ArrayList<StudentInfo> bucket = buckets[calcBucket(studentNumber)];
-			for (StudentInfo student : bucket) {
-				if (student.studentNumber == studentNumber) {
+			ArrayList<EmployeeInfo> bucket = buckets[calcBucket(studentNumber)];
+			for (EmployeeInfo student : bucket) {
+				if (student.empNumber == studentNumber) {
 					bucket.remove(student);
 					return student;
 				}
@@ -52,12 +52,12 @@ public class MyHashTable {
 		return null;
 	}
 
-	public StudentInfo getFromTable(int studentNumber) {
+	public EmployeeInfo getFromTable(int studentNumber) {
 		// Return the reference value for that student, return null if student isn't in
 		// the table.
 		if (studentNumber >= 0) {
-			for (StudentInfo student : buckets[calcBucket(studentNumber)])
-				if (student.studentNumber == studentNumber)
+			for (EmployeeInfo student : buckets[calcBucket(studentNumber)])
+				if (student.empNumber == studentNumber)
 					return student;
 		}
 		return null;
@@ -65,15 +65,15 @@ public class MyHashTable {
 
 	public boolean isInTable(int studentNumber) {
 		// Return true if that student is in the hash table, false otherwise.
-		for (StudentInfo student : buckets[calcBucket(studentNumber)])
-			if (student.studentNumber == studentNumber)
+		for (EmployeeInfo student : buckets[calcBucket(studentNumber)])
+			if (student.empNumber == studentNumber)
 				return true;
 		return false;
 	}
 
 	public void displayTable() {
 		// Walk through the buckets and display the items in each bucket's ArrayList.
-		StudentInfo currentStudent;
+		EmployeeInfo currentStudent;
 		for (int i = 0; i < buckets.length; i++) {
 			System.out.println("Contents for Bucket #" + i);
 			// Display the items in this bucket's ArrayList.
@@ -83,7 +83,7 @@ public class MyHashTable {
 				// Get the info for each item in this ArrayList.
 				for (int j = 0; j < buckets[i].size(); j++) {
 					currentStudent = buckets[i].get(j);
-					System.out.println("\t" + currentStudent.studentNumber + " " + currentStudent.firstName + " "
+					System.out.println("\t" + currentStudent.empNumber + " " + currentStudent.firstName + " "
 							+ currentStudent.lastName);
 				}
 			}
