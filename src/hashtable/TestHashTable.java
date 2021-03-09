@@ -31,7 +31,7 @@ public class TestHashTable {
 
 		System.out.println("***Testing removing students");
 		for (int i = 49; i >= 0; i--) {
-			System.out.println(testRemove(ht, i).studentNumber);
+			System.out.println(testRemove(ht, i).empNumber);
 			if (testExists(ht, i))
 				System.out.println("ERROR: Why is student with student number " + i + " still in the table???");
 			else
@@ -43,23 +43,25 @@ public class TestHashTable {
 			int rand = new Random().nextInt(50) + 50;
 			System.out.println("Finding student number " + rand);
 
-			StudentInfo s = testGet(ht, rand);
-			if (s.studentNumber == rand)
+			EmployeeInfo s = testGet(ht, rand);
+			if (s.empNumber == rand)
 				System.out.println("Successfully found student with student number " + rand);
 			else
 				System.out.println("ERRROR: Can not find student with student number " + rand);
 		}
+
+		ht.displayTable();
 	}
 
 	void testAdd(MyHashTable ht, int i) {
-		ht.addToTable(newStudent(i));
+		ht.addToTable(newEmployee(i));
 	}
 
-	StudentInfo testRemove(MyHashTable ht, int i) {
+	EmployeeInfo testRemove(MyHashTable ht, int i) {
 		return ht.removeFromTable(i);
 	}
 
-	StudentInfo testGet(MyHashTable ht, int i) {
+	EmployeeInfo testGet(MyHashTable ht, int i) {
 		return ht.getFromTable(i);
 	}
 
@@ -67,8 +69,9 @@ public class TestHashTable {
 		return ht.isInTable(i);
 	}
 
-	StudentInfo newStudent(int i) {
-		return new StudentInfo(i, null, null, 0, 0);
+	EmployeeInfo newEmployee(int i) {
+		boolean rand = new Random().nextBoolean();
+		return rand ? new PartTimeEmployee(i) : new FullTimeEmployee(i);
 	}
 
 }

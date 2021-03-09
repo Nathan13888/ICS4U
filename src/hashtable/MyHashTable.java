@@ -83,8 +83,9 @@ public class MyHashTable {
 				// Get the info for each item in this ArrayList.
 				for (int j = 0; j < buckets[i].size(); j++) {
 					currentStudent = buckets[i].get(j);
-					System.out.println("\t" + currentStudent.empNumber + " " + currentStudent.firstName + " "
-							+ currentStudent.lastName);
+					System.out.println(
+							"\t" + currentStudent + " " + currentStudent.empNumber + " " + currentStudent.firstName
+									+ " " + currentStudent.lastName + " --> " + currentStudent.calcAnnualGrossIncome());
 				}
 			}
 		}
